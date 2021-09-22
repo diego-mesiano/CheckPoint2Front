@@ -3,6 +3,10 @@ const dataCriacao = document.getElementById("dataCriacao");
 const dataLimite = document.getElementById("dataLimite");
 const descricao = document.getElementById("descricao");
 
+let date = new Date();
+date = date.getDate() + '/' + (date.getMonth() + 1) + "/" + date.getFullYear();
+dataCriacao.value = date;
+
 dataLimite.addEventListener("blur", () => validarCampoVazio(dataLimite));
 descricao.addEventListener("blur", () => {
   let campo = validarCampoVazio(descricao);
@@ -42,7 +46,6 @@ function validarCampoVazio(input) {
 function validarFormulario() {
   let erros = false;
   let inputs = document.getElementsByName("inputs-criar-card");
-  console.log(inputs);
   
   // VALIDAR O CAMPO VAZIO
   for(input of inputs) {
@@ -64,10 +67,6 @@ function validarFormulario() {
   
 
   // AQUI É SO CHAMAR A FUNÇÃO PARA CRIAR O CARD
-}
-
-function criarCard() {
-  alert("ME CHAMARAAAAAAAAAAAAAAM");
 }
 
 form.addEventListener("submit", (e) => {
