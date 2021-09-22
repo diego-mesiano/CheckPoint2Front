@@ -24,25 +24,27 @@
 
     <div class="formulario">
 
-        <form action="#" method="post">
-
-            <label for="dataCriacao">Data de criação:</label>
-            <input type="text" name="dataCriacao" id="dataCriacao" disabled>
-            <label for="dataLimite">Data limite:</label>
-            <input type="date" name="dataLimite" id="dataLimite">
-            <label for="descricao">Descrição:</label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+        <form id="form">
+            <label for="dataCriacao">Data de criação:
+              <input type="text" id="dataCriacao" disabled>
+              <span></span>
+            </label>
+            
+            <label for="dataLimite">Data limite:
+              <input type="date" name="inputs-criar-card" id="dataLimite">
+              <span></span>
+            </label>
+            
+            <label for="descricao">Descrição:
+              <textarea name="inputs-criar-card" id="descricao"></textarea>
+              <span></span>
+            </label>
             <button type="submit">Cadastrar</button>
         </form>
 
         <input type="checkbox" name="darkmode" id="darkmode">
         <label for="darkmode">Modo Escuro</label>
     </div>
-
-
-
-
-
     <script src="./assets/js/script.js"></script>
 </body>
 
