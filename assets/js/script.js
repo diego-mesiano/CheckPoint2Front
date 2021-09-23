@@ -82,3 +82,42 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   validarFormulario();
 })
+
+
+var tarefaDiv=document.getElementById(`tarefas-div`)
+
+var addTarefa=document.getElementById('add-tarefa')
+
+addTarefa.addEventListener('click',(e)=>{
+  e.preventDefault();
+
+  let ul=document.createElement('ul')
+  ul.setAttribute('id','tarefas-pendentes')
+
+  let li=document.createElement('li')
+  li.setAttribute('id','tarefa')
+ 
+  let divLi=document.createElement('div')
+  divLi.setAttribute('id','descricao')
+
+  let pNome=document.createElement('p')
+  pNome.setAttribute('id', 'nome')
+  let pNomeText=document.createTextNode('Minha tarefa')
+  pNome.appendChild(pNomeText)
+  
+  let pTime=document.createElement('p')
+  pTime.setAttribute('id', 'timestamp')
+  let pTimeText=document.createTextNode(dataCriacao.value)
+  pTime.appendChild(pTimeText)
+
+  ul.appendChild(li)
+  li.appendChild(divLi)
+  divLi.appendChild(pNome)
+  divLi.appendChild(pTime)
+
+  tarefaDiv.appendChild(ul)
+})
+
+
+
+
