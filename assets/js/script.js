@@ -65,7 +65,6 @@ function validarFormulario() {
 
   if(erros) return;
   
-
   // AQUI É SO CHAMAR A FUNÇÃO PARA CRIAR O CARD
 }
 
