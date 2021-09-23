@@ -4,8 +4,18 @@ const dataLimite = document.getElementById("dataLimite");
 const descricao = document.getElementById("descricao");
 
 let date = new Date();
-date = date.getDate() + '/' + (date.getMonth() + 1) + "/" + date.getFullYear();
-dataCriacao.value = date;
+let mes = date.getMonth() + 1;
+let dia = date.getDate();
+let ano = date.getFullYear();
+
+if(mes < 10) {
+  mes = '0' + mes;
+}
+
+let dataDoDia = dia + '/' + mes + "/" + ano;
+let dataFormatoAmericano = ano + '-' + mes + "-" + dia;
+dataCriacao.value = dataDoDia;
+dataLimite.setAttribute("min", dataFormatoAmericano);
 
 dataLimite.addEventListener("blur", () => validarCampoVazio(dataLimite));
 descricao.addEventListener("blur", () => {
