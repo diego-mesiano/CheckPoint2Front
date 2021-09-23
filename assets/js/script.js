@@ -12,6 +12,12 @@ if(mes < 10) {
   mes = '0' + mes;
 }
 
+
+
+
+
+
+
 let dataDoDia = dia + '/' + mes + "/" + ano;
 let dataFormatoAmericano = ano + '-' + mes + "-" + dia;
 dataCriacao.value = dataDoDia;
@@ -35,7 +41,7 @@ function validarTamanhoCampo(input) {
     input.style.borderColor = "green";
     input.nextElementSibling.innerHTML = "";
   }
-
+  
   return erros;
 }
 
@@ -49,7 +55,7 @@ function validarCampoVazio(input) {
     input.style.borderColor = "green";
     input.nextElementSibling.innerHTML = "";
   }
-
+  
   return erros;
 }
 
@@ -72,10 +78,14 @@ function validarFormulario() {
       }
     }
   }
-
+  
   if(erros) return;
   
   // AQUI É SO CHAMAR A FUNÇÃO PARA CRIAR O CARD
+  
+  adicionarTarefa()
+  
+  
 }
 
 form.addEventListener("submit", (e) => {
@@ -88,35 +98,108 @@ var tarefaDiv=document.getElementById(`tarefas-div`)
 
 var addTarefa=document.getElementById('add-tarefa')
 
-addTarefa.addEventListener('click',(e)=>{
-  e.preventDefault();
-
+function adicionarTarefa(){
+  
   let ul=document.createElement('ul')
   ul.setAttribute('id','tarefas-pendentes')
-
+  
   let li=document.createElement('li')
   li.setAttribute('id','tarefa')
  
   let divLi=document.createElement('div')
   divLi.setAttribute('id','descricao')
+  
 
+  // titulo
   let pNome=document.createElement('p')
   pNome.setAttribute('id', 'nome')
   let pNomeText=document.createTextNode('Minha tarefa')
   pNome.appendChild(pNomeText)
   
+
+  // data criacao
   let pTime=document.createElement('p')
   pTime.setAttribute('id', 'timestamp')
   let pTimeText=document.createTextNode(dataCriacao.value)
   pTime.appendChild(pTimeText)
 
+
+
+  // data limite
+  const [ano, mes, dia] = dataLimite.value.split("-")
+  
+  const dataLimiteFormatada= dia+'/'+mes+'/'+ano
+
+  let pTimeNew=document.createElement('p')
+  pTimeNew.setAttribute('id', 'timestamp')
+  let pTimeNewText=document.createTextNode(dataLimiteFormatada)
+  pTimeNew.appendChild(pTimeNewText)
+  
+  
+  // conteudo
+  let descricaoInput= document.createElement('p')
+  descricaoInput.setAttribute('id', 'descricao-conteudo')
+  let descricaoText=document.createTextNode(descricao.value)
+  descricaoInput.appendChild(descricaoText)
+  
   ul.appendChild(li)
   li.appendChild(divLi)
   divLi.appendChild(pNome)
   divLi.appendChild(pTime)
+  divLi.appendChild(pTimeNew)
+  divLi.appendChild(descricaoInput)
+  
 
   tarefaDiv.appendChild(ul)
-})
+  
+  
+  console.log(dataLimiteFormatada)
+}
+
+
+
+
+
+
+// Math.floor(Math.random() * 9000000000000 + 1),
+
+
+
+
+
+// var tarefaDiv=document.getElementById(`tarefas-div`)
+
+// var addTarefa=document.getElementById('add-tarefa')
+
+// addTarefa.addEventListener('click',(e)=>{
+//   e.preventDefault();
+
+//   let ul=document.createElement('ul')
+//   ul.setAttribute('id','tarefas-pendentes')
+
+//   let li=document.createElement('li')
+//   li.setAttribute('id','tarefa')
+ 
+//   let divLi=document.createElement('div')
+//   divLi.setAttribute('id','descricao')
+
+//   let pNome=document.createElement('p')
+//   pNome.setAttribute('id', 'nome')
+//   let pNomeText=document.createTextNode('Minha tarefa')
+//   pNome.appendChild(pNomeText)
+  
+//   let pTime=document.createElement('p')
+//   pTime.setAttribute('id', 'timestamp')
+//   let pTimeText=document.createTextNode(dataCriacao.value)
+//   pTime.appendChild(pTimeText)
+
+//   ul.appendChild(li)
+//   li.appendChild(divLi)
+//   divLi.appendChild(pNome)
+//   divLi.appendChild(pTime)
+
+//   tarefaDiv.appendChild(ul)
+// })
 
 
 
