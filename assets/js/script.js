@@ -1,18 +1,19 @@
 //ao carregar a pagina, mostra p local storage
-window.onload=function(){
+window.onload = function () {
   baixarLocalStorage();
-  for (let i =0; i<tarefasJs.data.length; i++){
-  document.getElementById("tarefas-div").innerHTML+=`
-  <ul id="tarefas-pendentes">
-    <li id="tarefa">
-      <div id="descricao">
-        <p id="nome">Minha tarefa</p>
-        <p id="timestamp">Criado: ${tarefasJs.data[i]}</p>
-        <p id="timestamp">Data Limite: ${tarefasJs.limite[i]}</p>
-        <p id="descricao-conteudo">Descrição: ${tarefasJs.descricao[i]}</p>
-      </div>
-    </li>
-  </ul>`
+  for (let i = 0; i < tarefasJs.data.length; i++) {
+    document.getElementById("tarefas-div").innerHTML += `
+      <ul id="tarefas-pendentes">
+       <li id="tarefa">
+          <div id="descricao">
+            <p id="titulo-conteudo">${tarefasJs.titulo[i]}</p>
+            <p id="timestamp">Criado: ${tarefasJs.data[i]}</p>
+            <p id="timestamp">Data Limite: ${tarefasJs.limite[i]}</p>
+            <p id="descricao-conteudo">Descrição: ${tarefasJs.descricao[i]}</p>
+           </div>
+        </li>
+      </ul>
+    `
   }
 }
 
@@ -20,6 +21,7 @@ window.onload=function(){
 var tarefasJs = {
   data: [],
   limite: [],
+  titulo: [],
   descricao: [],
 }
 var tarefasStr = JSON.stringify(tarefasJs);
@@ -47,6 +49,7 @@ function subirLocalStorage() {
 // INPUTS
 const dataCriacao = document.getElementById("dataCriacao");
 const dataLimite = document.getElementById("dataLimite");
+const titulo = document.getElementById("titulo-input");
 const descricao = document.getElementById("descricao");
 
 //variaveis para receber a data atual
@@ -141,6 +144,10 @@ form.addEventListener("submit", (e) => {
 })
 
 
+// 
+// function criar objetos da lista
+// 
+
 var tarefaDiv = document.getElementById(`tarefas-div`)
 
 var addTarefa = document.getElementById('add-tarefa')
@@ -154,14 +161,14 @@ function adicionarTarefa() {
   li.setAttribute('id', 'tarefa')
 
   let divLi = document.createElement('div')
-  divLi.setAttribute('id', 'descricao')
+  divLi.setAttribute('id', 'descricao divteste')
 
 
   // titulo
-  let pNome = document.createElement('p')
-  pNome.setAttribute('id', 'nome')
-  let pNomeText = document.createTextNode('Minha tarefa')
-  pNome.appendChild(pNomeText)
+  let pTitulo = document.createElement('p')
+  pTitulo.setAttribute('id', 'titulo-conteudo')
+  let pTituloText = document.createTextNode(titulo.value)
+  pTitulo.appendChild(pTituloText)
 
 
   // data criacao
@@ -170,7 +177,7 @@ function adicionarTarefa() {
   let pTimeText = document.createTextNode("Criado: " + dataCriacao.value)
   pTime.appendChild(pTimeText)
 
-  
+
 
   // data limite
   const [ano, mes, dia] = dataLimite.value.split("-")
@@ -187,11 +194,12 @@ function adicionarTarefa() {
   let descricaoInput = document.createElement('p')
   descricaoInput.setAttribute('id', 'descricao-conteudo')
   let descricaoText = document.createTextNode("Descrição: " + descricao.value)
-
   descricaoInput.appendChild(descricaoText)
+
+
   ul.appendChild(li)
   li.appendChild(divLi)
-  divLi.appendChild(pNome)
+  divLi.appendChild(pTitulo)
   divLi.appendChild(pTime)
   divLi.appendChild(pTimeNew)
   divLi.appendChild(descricaoInput)
@@ -201,55 +209,16 @@ function adicionarTarefa() {
   baixarLocalStorage();
   tarefasJs.data.push(dataCriacao.value);
   tarefasJs.limite.push(dataLimiteFormatada);
+  tarefasJs.titulo.push(titulo.value)
   tarefasJs.descricao.push(descricao.value);
   subirLocalStorage();
+
+
+
 }
 
 
 
-
-
-
 // Math.floor(Math.random() * 9000000000000 + 1),
-
-
-
-
-
-// var tarefaDiv=document.getElementById(`tarefas-div`)
-
-// var addTarefa=document.getElementById('add-tarefa')
-
-// addTarefa.addEventListener('click',(e)=>{
-//   e.preventDefault();
-
-//   let ul=document.createElement('ul')
-//   ul.setAttribute('id','tarefas-pendentes')
-
-//   let li=document.createElement('li')
-//   li.setAttribute('id','tarefa')
-
-//   let divLi=document.createElement('div')
-//   divLi.setAttribute('id','descricao')
-
-//   let pNome=document.createElement('p')
-//   pNome.setAttribute('id', 'nome')
-//   let pNomeText=document.createTextNode('Minha tarefa')
-//   pNome.appendChild(pNomeText)
-
-//   let pTime=document.createElement('p')
-//   pTime.setAttribute('id', 'timestamp')
-//   let pTimeText=document.createTextNode(dataCriacao.value)
-//   pTime.appendChild(pTimeText)
-
-//   ul.appendChild(li)
-//   li.appendChild(divLi)
-//   divLi.appendChild(pNome)
-//   divLi.appendChild(pTime)
-
-//   tarefaDiv.appendChild(ul)
-// })
-
-
 
 
