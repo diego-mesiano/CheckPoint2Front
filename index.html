@@ -2,58 +2,62 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>front</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>front</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
- 
+
 <body>
 
-    <div id="cardConteiner">
-        <div class="tarefa">
-            <p class="dataInicial"></p>
-            <p class="dataFinal"></p>
-            <p class="comentario"></p>
-        </div>
-
+  <div id="cardConteiner">
+    <div class="tarefa">
+      <p class="dataInicial"></p>
+      <p class="dataFinal"></p>
+      <p class="comentario"></p>
     </div>
 
+  </div>
+  <img src="" alt="" width="">
 
-    <div class="formulario">
+  <div class="formulario">
 
-        <form id="form">
-            <label for="dataCriacao">Data de criação:
-              <input type="text" id="dataCriacao" disabled>
-              <span></span>
-            </label>
-            
-            <label for="dataLimite">Data limite:
-              <input type="date" name="inputs-criar-card" id="dataLimite" min="2021-09-23">
-              <span></span>
-            </label>
-            
-            <label for="titulo">Título:
-              <input type="text" name="inputs-criar-card" id="titulo-input">
-              <span></span>
-            </label>
+    <form id="form">
+      <label for="dataCriacao">Data de criação:
+        <input type="text" id="dataCriacao" disabled>
+        <span></span>
+      </label>
 
-            <label for="descricao">Descrição:
-              <textarea name="inputs-criar-card" id="descricao"></textarea>
-              <span></span>
-            </label>
-            <button id="add-tarefa" type="submit">Cadastrar</button>
-        </form>
+      <label for="dataLimite">Data limite:
+        <input type="date" name="inputs-criar-card" id="dataLimite" min="2021-09-23">
+        <span></span>
+      </label>
 
-        <input type="checkbox" name="darkmode" id="darkmode">
-        <label for="darkmode">Modo Escuro</label>
-    </div>
-    
-    <div id="tarefas-div"></div>
+      <label for="titulo">Título:
+        <input type="text" name="inputs-criar-card" id="titulo-input">
+        <span></span>
+      </label>
 
-   <script src="./assets/js/script.js"></script>
+      <label for="descricao">Descrição:
+        <textarea name="inputs-criar-card" id="descricao"></textarea>
+        <span></span>
+      </label>
+      <button id="add-tarefa" type="submit">Cadastrar</button>
+
+
+    </form>
+    <button id="editar-tarefa">Editar</button>
+    <button id="cancelar">Cancelar Edição</button>
+
+    <input type="checkbox" name="darkmode" id="darkmode">
+    <label for="darkmode">Modo Escuro</label>
+  </div>
+
+  <div id="tarefas-div"></div>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
