@@ -13,42 +13,43 @@
   <header>
     <h1>To.Do</h1>
   </header>
-  <div id="tarefas-div"></div>
-  <div class="formulario">
-    <form id="form">
-      <label for="dataCriacao">Data de criação:
-        <input type="text" id="dataCriacao" disabled>
-        <span></span>
-      </label>
-
-      <label for="dataLimite">Data limite:
-        <input type="date" name="inputs-criar-card" id="dataLimite" min="2021-09-23">
-        <span></span>
-      </label>
-
-      <label for="titulo">Título:
-        <input type="text" name="inputs-criar-card" id="titulo-input">
-        <span></span>
-      </label>
-
-      <label for="descricao">Descrição:
-        <textarea name="inputs-criar-card" id="descricao"></textarea>
-        <span></span>
-      </label>
-      <button id="add-tarefa" type="submit">Cadastrar</button>
-    </form>
-    
-    <div class="btnsOculto">
-      <button id="editar-tarefa">Editar</button>
-      <button id="cancelar">Cancelar Edição</button>
-    </div>
-    
-    <div class="darkModeContainer">
-      <input type="checkbox" name="darkmode" id="darkmode">
-      <label for="darkmode">Modo Escuro</label>
-    </div>
+  <main>
+    <div class="tarefas" id="tarefas-div"></div>
+    <div class="formulario">
+      <form id="form">
+        <label for="dataCriacao">Data de criação:
+          <input type="text" id="dataCriacao" disabled>
+          <span></span>
+        </label>
   
-  </div>
+        <label for="dataLimite">Data limite:
+          <input type="date" name="inputs-criar-card" id="dataLimite" min="2021-09-23">
+          <span></span>
+        </label>
+  
+        <label for="titulo">Título:
+          <input type="text" name="inputs-criar-card" id="titulo-input">
+          <span></span>
+        </label>
+  
+        <label for="descricao">Descrição:
+          <textarea name="inputs-criar-card" id="descricao"></textarea>
+          <span></span>
+        </label>
+        <button id="add-tarefa" type="submit">Cadastrar</button>
+      </form>
+  
+      <div class="btnsOculto">
+        <button id="editar-tarefa">Editar</button>
+        <button id="cancelar">Cancelar Edição</button>
+      </div>
+  
+      <div class="darkModeContainer">
+        <input type="checkbox" name="darkmode" id="darkmode">
+        <label for="darkmode">Modo Escuro</label>
+      </div>
+    </div>
+  </main>
   <footer>
     <h3>Desenvolvido por: 
       <a href="https://www.linkedin.com/in/alexandre-mota-10815b217/" style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn do Alexandre" width="21px">Alexandre Mota</a>
