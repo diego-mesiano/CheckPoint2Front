@@ -5,25 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>front</title>
+  <title>To.Do</title>
   <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 
 <body>
-
-  <div id="cardConteiner">
-    <div class="tarefa">
-      <p class="dataInicial"></p>
-      <p class="dataFinal"></p>
-      <p class="comentario"></p>
-    </div>
-
-  </div>
-  <img src="" alt="" width="">
-
+  <header>
+    <h1>To.Do</h1>
+  </header>
+  <div id="tarefas-div"></div>
   <div class="formulario">
-
     <form id="form">
       <label for="dataCriacao">Data de criação:
         <input type="text" id="dataCriacao" disabled>
@@ -45,18 +36,30 @@
         <span></span>
       </label>
       <button id="add-tarefa" type="submit">Cadastrar</button>
-
-
     </form>
-    <button id="editar-tarefa">Editar</button>
-    <button id="cancelar">Cancelar Edição</button>
-
-    <input type="checkbox" name="darkmode" id="darkmode">
-    <label for="darkmode">Modo Escuro</label>
+    
+    <div class="btnsOculto">
+      <button id="editar-tarefa">Editar</button>
+      <button id="cancelar">Cancelar Edição</button>
+    </div>
+    
+    <div class="darkModeContainer">
+      <input type="checkbox" name="darkmode" id="darkmode">
+      <label for="darkmode">Modo Escuro</label>
+    </div>
+  
   </div>
-
-  <div id="tarefas-div"></div>
-
+  <footer>
+    <h3>Desenvolvido por: 
+      <a href="https://www.linkedin.com/in/alexandre-mota-10815b217/" style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn do Alexandre" width="21px">Alexandre Mota</a>
+      <a href="https://www.linkedin.com/in/diego-mesiano-87b680213/"style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn do Diego" width="21px">Diego Mesiano</a>
+      <a href="https://www.linkedin.com/in/erik-kayser-b5228a212/"style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn do Erik" width="21px">Erik Kayser</a>
+      <a href="https://www.linkedin.com/in/jeziel-oliveira-de-paula-21b8211b3/"style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn do Jeziel" width="21px">Jeziel Oliveira de Paula</a>
+      <a href=""><img src="./assets/img/in.png" alt="LinkeIn do Maycon" width="21px"style="margin-right: 5px;">Maycon James</a>
+      <a href="https://www.linkedin.com/in/nicole-stefany-da-silva-b3b73a185/"style="margin-right: 5px;"><img src="./assets/img/in.png" alt="LinkeIn da Nicole" width="21px">Nicole Stefany Da Silva</a>
+      <a href=""><img src="./assets/img/in.png" alt="LinkeIn do Rafael" width="21px">Rafael Rodrigues da Silva</a>
+    </h3>
+  </footer>
   <script src="./assets/js/script.js"></script>
 </body>
 
