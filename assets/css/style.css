@@ -1,125 +1,241 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-header{
+body {
+  font-family: sans-serif;
+  background-color: #eeeeee;
+}
+
+button {
+  cursor: pointer;
+}
+
+#editar-tarefa {
+  display: none;
+}
+
+#cancelar {
+  display: none;
+}
+
+/******************** CABEÇALHO **************************/
+header {
     background-color: black;
     color: white;
     padding: 20px 10px;
-}
-/*estilos inicias*/
-
-#editar-tarefa{
-    display: none;
-}
-#cancelar{
-    display: none;
-}
-
-body{
-    font-family: sans-serif;
-}
-
-main{
-    padding: 20px;
-    min-width: 100%;
-    min-height: calc(100vh - 141px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-span{
-    color: red;
-}
-.formulario{
-    min-width: 30%;
-    max-width: 30%;
-    text-align: center;
-    font-size: 30px;
+    justify-content: center;
+  
 }
 
-.formulario>form{
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    color: white;
-    justify-content: space-around;
-    min-height: 800px;
-    max-height: 800px;
-    align-items: center;
-    border-radius: 20px;
-    
+header h1 {
+  font-family: 'Pacifico', cursive;
+  color: orange;
 }
 
-.formulario>form>label{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 30px;
-}
-.formulario>form>label>input{
-    width: 100%;
-    height: 50px;
-    font-size: 30px;
-    text-align: center;
+/******************** CONTEUDO PRINCIPAL ******************/
+
+main {
+  display: flex;
 }
 
-.formulario>form>label>textarea{
-    width: 450px;
-    max-height: 250px;
-    min-height: 250px;
-    font-size: 30px;
-    font-family: sans-serif;
+/********************** SECTION *************************/
+#tarefas-div {
+  display: flex;
+  background-color: #ffffff;
+  padding: 10px;
+  flex: 1;
 }
 
-.formulario>form>button{
-    height: 40px;
-    width: 200px;
-    background-color: gray;
-    border-style: none;
-    border-radius: 15px;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
+#secao-formulario {
+  width: 330px;
+  padding: 10px;
+  background-color: #ffffff;
 }
 
-.formulario>.btnsOculto{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 15px;
-    margin-top: 20px;
-    background-color: black;
-    height: 70px;
-}
-.formulario>.btnsOculto>button{
-    height: 40px;
-    width: 200px;
-    background-color: gray;
-    border-style: none;
-    border-radius: 15px;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-
+/********************** TAREFA ***************************/
+.tarefa {
+  max-width: 280px;
+  width: 100%;
+  height: 220px;
+  /* background-color: red; */
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 1px 1px 3px 1px #cccccc;
+  margin: 10px;
 }
 
-.tarefas{
+.tarefa-concluida {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.6);
+  z-index: 2;
+  display: none;
+}
 
+.caixa-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.caixa-data span {
+  color: #cccccc;
+}
+
+.caixa-descricao {
+  height: 150px;
+  padding-top: 5px;
+  word-break: break-all;
+  /* background-color: orange; */
+  flex: 1;
+  overflow-y: auto;
+}
+
+.caixa-descricao h2 {
+  font-size: 18px;
+}
+
+.caixa-descricao p {
+  font-size: 15px;
+}
+
+.caixa-botoes {
+  display: flex;
+  align-items: flex-end;
+  /* background-color: blue; */
+}
+
+.caixa-botoes a {
+  display: inline-flex;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.caixa-botoes a img {
+  width: 25px;
+  filter: invert(24%) sepia(0%) saturate(0%) hue-rotate(135deg) brightness(92%) contrast(82%);
 }
 
 
-footer{
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding: 20px 10px;
+/****************** FORMULÀRIO *********************/
+
+#form {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  flex-direction: column;
 }
 
-footer>h3>a{
-    color: white;
+.label{
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+
+  /* background-color: darkcyan; */
+  margin-bottom: 10px;
 }
 
+.label input {
+  width: 100%;
+  height: 35px;
+  padding-left: 5px;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+}
 
+.label span {
+  font-size: 13px;
+  color: red;
+}
+
+.label textarea {
+  width: 100%;
+  height: 130px;
+  font-size: 15px;
+  resize: none;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.formulario > form>button{
+  height: 40px;
+  width: 200px;
+  background-color: gray;
+  border-style: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.formulario > .btnsOculto{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-size: 16px;
+  height: 70px;
+}
+.formulario > .btnsOculto>button{
+  height: 40px;
+  width: 200px;
+  background-color: orange;
+  border-style: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 5px;
+}
+
+#add-tarefa {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: orange;
+  transition: 0.2s;
+}
+
+#add-tarefa:hover {
+  background-color: rgb(230, 151, 5);
+}
+
+/******************* RODAPÈ **************************/
+footer {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 20px 10px;
+}
+
+footer h3 {
+  color: orange;
+  margin-bottom: 10px;
+}
+
+footer a{
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+footer a img {
+  margin-right: 7px;
+  filter: invert(60%) sepia(44%) saturate(1452%) hue-rotate(0deg) brightness(104%) contrast(106%);
+}

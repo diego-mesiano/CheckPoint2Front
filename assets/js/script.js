@@ -1,42 +1,76 @@
 //ao carregar a pagina, mostra p local storage
+// window.onload = function () {
+//   baixarLocalStorage();
+//   for (let i = 0; i < tarefasJs.data.length; i++) {
+//     document.getElementById("tarefas-div").innerHTML += 
+//     `
+//       <ul id="tarefas-pendentes">
+//        <li id="tarefa">
+//           <div id="descricao">
+//             <p id="titulo-conteudo">${tarefasJs.titulo[i]}</p>
+//             <p id="timestamp">Criado: ${tarefasJs.data[i]}</p>
+//             <p id="timestamp">Data Limite: ${tarefasJs.limite[i]}</p>`
+            
+//             if (tarefasJs.concluida[i]==1){
+//               document.getElementById("tarefas-div").innerHTML += 
+//                 `<p id="descricao-conteudo"><s>Descrição:${tarefasJs.descricao[i]}</p></s>`
+//             } else{
+//               document.getElementById("tarefas-div").innerHTML += 
+//                 `<p id="descricao-conteudo">Descrição:${tarefasJs.descricao[i]}</p>`
+//             }
+            
+//             document.getElementById("tarefas-div").innerHTML +=
+//             `<div class="botoesAcao">
+//               <a onclick="excluir(${i})">
+//                 <img alt="Excluir Tarefa" src="./assets/img/excluir.png" width="30px">
+//               </a>
+//               <a onclick="editar(${i})">
+//                 <img alt="Editar Tarefa" src="./assets/img/editar.png" width="30px">
+//               </a>
+//               <a onclick="concluir(${i})">
+//                 <img alt="Concluir Tarefa" src="./assets/img/concluir.png" width="30px">
+//                 </a>
+//             </div> 
+//           </div>
+//         </li>
+//       </ul>
+//     `
+//   }
+// }
+
+//variaveis para manipulação do session storage
+
 window.onload = function () {
   baixarLocalStorage();
   for (let i = 0; i < tarefasJs.data.length; i++) {
     document.getElementById("tarefas-div").innerHTML += 
-    `<ul id="tarefas-pendentes">
-       <li id="tarefa">
-          <div id="descricao">
-            <p id="titulo-conteudo">${tarefasJs.titulo[i]}</p>
-            <p id="timestamp">Criado: ${tarefasJs.data[i]}</p>
-            <p id="timestamp">Data Limite: ${tarefasJs.limite[i]}</p>`
-            
-            if (tarefasJs.concluida[i]==1){
-              document.getElementById("tarefas-div").innerHTML += 
-                `<p id="descricao-conteudo"><s>Descrição:${tarefasJs.descricao[i]}</p></s>`
-            } else{
-              document.getElementById("tarefas-div").innerHTML += 
-                `<p id="descricao-conteudo">Descrição:${tarefasJs.descricao[i]}</p>`
-            }
-            
-            document.getElementById("tarefas-div").innerHTML +=
-            `<div class="botoesAcao">
-              <a onclick="excluir(${i})">
-                <img alt="Excluir Tarefa" src="./assets/img/excluir.png" width="30px">
-              </a>
-              <a onclick="editar(${i})">
-                <img alt="Editar Tarefa" src="./assets/img/editar.png" width="30px">
-              </a>
-              <a onclick="concluir(${i})">
-                <img alt="Concluir Tarefa" src="./assets/img/concluir.png" width="30px">
-                </a>
-            </div> 
-          </div>
-        </li>
-      </ul>`
+    `
+      <div  class="tarefa">
+        <div class="tarefa-concluida"></div>
+        <div class="caixa-data">
+          <span>${tarefasJs.data[i]}</span>
+          <span>${tarefasJs.limite[i]}</span>
+        </div>
+        <div class="caixa-descricao">
+          <h2>${tarefasJs.titulo[i]}</h2>
+          <p>${tarefasJs.descricao[i]}</p>
+        </div>
+        <div class="caixa-botoes">
+          <a onclick="excluir(${i})">
+            <img alt="Excluir Tarefa" src="./assets/img/excluir.svg" width="30px">
+          </a>
+          <a onclick="editar(${i})">
+            <img alt="Editar Tarefa" src="./assets/img/editar.svg" width="30px">
+          </a>
+          <a onclick="concluir(${i})">
+            <img alt="Concluir Tarefa" src="./assets/img/concluir.svg" width="30px">
+          </a>
+        </div>
+      </div>
+    `
   }
 }
 
-//variaveis para manipulação do session storage
 var tarefasJs = {
   i:[],
   data: [],
@@ -94,6 +128,7 @@ dataCriacao.value = dataDoDia;
 //garante que data limite não pode ser menor que a data atual e que não esta vazia
 dataLimite.setAttribute("min", dataFormatoAmericano);
 dataLimite.addEventListener("blur", () => validarCampoVazio(dataLimite));
+titulo.addEventListener("blur", () => validarCampoVazio(titulo));
 
 //garante que a descrição não seja vazia e com menos de 10 caracteres
 descricao.addEventListener("blur", () => {
@@ -156,8 +191,6 @@ function validarFormulario() {
   // AQUI É SO CHAMAR A FUNÇÃO PARA CRIAR O CARD
 
   adicionarTarefa()
-
-
 }
 
 form.addEventListener("submit", (e) => {
@@ -170,7 +203,7 @@ form.addEventListener("submit", (e) => {
 // function criar objetos da lista
 // 
 
-var tarefaDiv = document.getElementById(`tarefas-div`)
+var tarefaDiv = document.getElementById('tarefas-div')
 
 var addTarefa = document.getElementById('add-tarefa')
 
