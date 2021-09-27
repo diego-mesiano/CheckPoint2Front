@@ -44,14 +44,21 @@ header h1 {
 
 main {
   display: flex;
+  height: calc(100vh - 204px);;
+  /*min-height: calc(100vh - 233px);
+  max-height: calc(100vh - 233px);*/
+ 
 }
 
 /********************** SECTION *************************/
 #tarefas-div {
   display: flex;
+  flex-wrap: wrap;
   background-color: #ffffff;
   padding: 10px;
   flex: 1;
+  overflow-y: auto;
+  
 }
 
 #secao-formulario {
@@ -219,6 +226,7 @@ footer {
   background-color: black;
   color: white;
   padding: 20px 10px;
+
 }
 
 footer h3 {

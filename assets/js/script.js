@@ -44,17 +44,23 @@ window.onload = function () {
   baixarLocalStorage();
   for (let i = 0; i < tarefasJs.data.length; i++) {
     document.getElementById("tarefas-div").innerHTML += 
-    `
-      <div  class="tarefa">
+    `<div  class="tarefa">
         <div class="tarefa-concluida"></div>
         <div class="caixa-data">
           <span>${tarefasJs.data[i]}</span>
           <span>${tarefasJs.limite[i]}</span>
         </div>
         <div class="caixa-descricao">
-          <h2>${tarefasJs.titulo[i]}</h2>
-          <p>${tarefasJs.descricao[i]}</p>
-        </div>
+          <h2>${tarefasJs.titulo[i]}</h2>`
+    if (tarefasJs.concluida[i]==1){
+      document.getElementById("tarefas-div").innerHTML += 
+      `<p id="descricao-conteudo">Descrição:<s>${tarefasJs.descricao[i]}</s></p>`
+    }else{
+      document.getElementById("tarefas-div").innerHTML += 
+      `<p id="descricao-conteudo">Descrição:${tarefasJs.descricao[i]}</p>`
+    }
+      document.getElementById("tarefas-div").innerHTML +=
+    `   
         <div class="caixa-botoes">
           <a onclick="excluir(${i})">
             <img alt="Excluir Tarefa" src="./assets/img/excluir.svg" width="30px">
@@ -67,6 +73,7 @@ window.onload = function () {
           </a>
         </div>
       </div>
+    </div>
     `
   }
 }
@@ -334,14 +341,18 @@ function excluir(index){
 
 function editar(index){
   baixarLocalStorage();
+  /*const dataCriacao = document.getElementById("dataCriacao");
+const dataLimite = document.getElementById("dataLimite");
+const titulo = document.getElementById("titulo-input");
+const descricao = document.getElementById("descricao");*/
   document.getElementById("dataCriacao").value = tarefasJs.data[index];
   const [dia, mes, ano] = tarefasJs.limite[index].split("/");
   const dataFormatada = ano + '-' + mes + '-' + dia;
-  let a = document.getElementById("dataLimite") 
-  a.value = dataFormatada;
-  let b = document.getElementById("titulo-input")
-  b.value = tarefasJs.titulo[index];
-  let c = document.getElementById("descricao");
+  //let a = document.getElementById("dataLimite") 
+  dataLimite.value = dataFormatada;
+  //titulo = document.getElementById("titulo-input")
+  titulo.value = tarefasJs.titulo[index];
+  //let c = document.getElementById("descricao");
   descricao.value = tarefasJs.descricao[index];
   descricao.focus();
   
@@ -373,14 +384,13 @@ function editar(index){
     if (erros) return;
 
     if(confirm("Confirma a edição?")){
-      const [aa, m, d] = a.value.split("-")
+      const [aa, m, d] = dataLimite.value.split("-");
       const data = d + '/' + m + '/' + aa;
       tarefasJs.limite[index] = data;
-      tarefasJs.titulo[index] = b.value;
-      tarefasJs.descricao[index] = c.value;
+      tarefasJs.titulo[index] = titulo.value;
+      tarefasJs.descricao[index] = descricao.value;
       subirLocalStorage();
       window.location.reload();
-      console.log("entrei");
     }
   })
 
