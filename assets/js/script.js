@@ -309,8 +309,8 @@ function editar(index){
   let b = document.getElementById("titulo-input")
   b.value = tarefasJs.titulo[index];
   let c = document.getElementById("descricao");
-  c.focus();
-  c.value = tarefasJs.descricao[index];
+  descricao.value = tarefasJs.descricao[index];
+  descricao.focus();
   
   document.getElementById("add-tarefa").style.display ="none";
   document.getElementById("editar-tarefa").style.display ="initial";
