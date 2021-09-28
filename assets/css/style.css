@@ -43,7 +43,7 @@ header h1 {
 
 main {
   display: flex;
-  height: calc(100vh - 201.5px);;
+  height: calc(100vh - 205px);
 }
 
 /********************** SECTION *************************/
@@ -248,3 +248,37 @@ footer a img {
   margin-right: 7px;
   filter: invert(60%) sepia(44%) saturate(1452%) hue-rotate(0deg) brightness(104%) contrast(106%);
 }
+
+/*RESPONSIVIDADE*/
+@media (max-width: 1024px) {
+  main{
+    height:auto;
+  }
+}
+@media (max-width: 540px) {
+  main{
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height:auto;
+  }
+  #tarefas-div{
+    justify-content: center;
+    
+  }
+}
+
+@media (max-width: 320px) {
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    background-color: white;
+  }
+  .formulario{
+    max-width: 260px;
+  }
+}
+
+
