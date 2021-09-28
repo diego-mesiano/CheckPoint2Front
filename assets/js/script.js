@@ -18,7 +18,7 @@ window.onload = function () {
       </div>
       <div class="caixa-descricao">
         <h2>${tarefasJs.titulo[i]}</h2>
-        <p id="descricao-conteudo">Descrição:${criarTachado()}${tarefasJs.descricao[i]}</s></p>
+        <p id="descricao-conteudo">${criarTachado()}${tarefasJs.descricao[i]}</s></p>
       </div>
       <div class="caixa-botoes">
         <a onclick="excluir(${i})">
